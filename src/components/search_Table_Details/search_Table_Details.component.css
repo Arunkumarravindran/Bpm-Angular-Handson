@@ -1,0 +1,22 @@
+.search-container{
+    height: 0px;
+    width: 12%;
+    background-color: powderblue;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .search-container {
+      float: none;
+    }
+ .search-container button input[type=text]{
+     
+      display: block;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+      padding: 14px;
+    }
+    input[type=text] {
+      border: 1px solid #ccc;  
+    }
+  }
