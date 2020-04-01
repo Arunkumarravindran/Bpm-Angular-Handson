@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
+import { GetDoctorDetailsService } from "src/app/get-doctor-details.service";
+
 @Component({
   selector: "app-details_Table",
   templateUrl: "./details_Table.component.html",
@@ -8,6 +10,8 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 })
 export class Details_TableComponent implements OnInit {
   searchText: string;
+
+  doctorDetails: object;
   closeResult = "";
   genders$ = [{ name: "Male" }, { name: "Female" }, { name: "Others" }];
   specialities$ = [
@@ -22,9 +26,17 @@ export class Details_TableComponent implements OnInit {
     { name: "Psychiatry" },
     { name: "Vascular Surgery" }
   ];
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private getDoctorDetailsService: GetDoctorDetailsService,
+    private modalService: NgbModal
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getDoctorDetailsService.getDoctorDetails().subscribe(data => {
+      this.doctorDetails = data;
+      console.log(this.doctorDetails);
+    });
+  }
 
   searchPoduct(data) {
     this.searchText = data;
