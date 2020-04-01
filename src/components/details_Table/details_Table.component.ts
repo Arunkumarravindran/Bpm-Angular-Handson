@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details_Table.component.css']
 })
 export class Details_TableComponent implements OnInit {
-
+  searchText: string;
   constructor() { }
 
   ngOnInit() {
   }
+
+  searchPoduct(data){
+    this.searchText = data;
+      }
 
 }

@@ -1,3 +1,2 @@
-<div class="search-container">
-    <input type="text" placeholder="Search..." name="search">
-</div>
+
+<input type="search" class = "myInput" [(ngModel)]="searchText" (keyup)="filterSearchText(searchText)" placeholder="FirstName/ Email ID/ City/ Specalities" title="Type in a name"/>

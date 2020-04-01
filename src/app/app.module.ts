@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { Search_Table_DetailsComponent } from '../components/search_Table_Details/search_Table_Details.component';
 import { Details_TableComponent } from '../components/details_Table/details_Table.component';
 import { PopUp_DialogComponent } from '../components/popUp_Dialog/popUp_Dialog.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
    declarations: [
       AppComponent,
@@ -16,7 +16,8 @@ import { PopUp_DialogComponent } from '../components/popUp_Dialog/popUp_Dialog.c
    ],
    imports: [
       BrowserModule,
-      AppRoutingModule
+      AppRoutingModule,
+      FormsModule
    ],
    providers: [],
    bootstrap: [

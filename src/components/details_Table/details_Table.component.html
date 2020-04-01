@@ -1,8 +1,8 @@
 <div class = "searchcontent">
- <app-search_Table_Details></app-search_Table_Details>
-  <div  style="position: absolute; right: 0;">
-  <button>Add Doctor</button>
-  <span></span>
-  <button>Add Pharmacy</button>
-  </div>
+ <app-search_Table_Details (searchTextop) = 'searchPoduct($event)'></app-search_Table_Details>
+ <span>
+  <button style="position: absolute; right: 0;" class = "doctorButton"><i class="fa fa-stethoscope" aria-hidden="true"></i>Add Doctor</button><span></span>
+  <button style="position: absolute; right: 0;" class = "pharmacyButton"><i class="fa fa-medkit" aria-hidden="true"></i>Add Pharmacy</button>
+</span>
+</div>
   
