@@ -14,6 +14,7 @@ export class Search_Table_DetailsComponent implements OnInit {
   }
 
   filterSearchText(e){
+    console.log("inside filter",e)
     this.searchTextop.emit(e)
   }
 
