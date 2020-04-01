@@ -1,7 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { NgbDate, NgbModule } from "@ng-bootstrap/ng-bootstrap";
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { Search_Table_DetailsComponent } from "../components/search_Table_Details/search_Table_Details.component";
