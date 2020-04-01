@@ -16,7 +16,7 @@
   </span>
 </div>
 <table>
-    <tr>
+  <tr>
     <th>Full Name</th>
     <th>Mobile No</th>
     <th>Email</th>
@@ -24,17 +24,18 @@
     <th>Practice Since</th>
     <th>Specialaization</th>
     <th>City</th>
-    </tr>
-    <tr *ngFor="let doctor of doctorDetails">
-      <td>{{doctor.fullName}}</td>
-      <td>{{doctor.mobileNo}}</td>
-      <td>{{doctor.email}}</td>
-      <td>{{doctor.gender}}</td>
-      <td>{{doctor.practiceSince}}</td>
-      <td>{{doctor.specialization}}</td>
-      <td>{{doctor.city}}</td>
-    </tr>
-  </table>
+  </tr>
+  <tr *ngFor="let doctor of doctorDetails">
+    <td>{{ doctor.fullName }}</td>
+    <td>{{ doctor.mobileNo }}</td>
+    <td>{{ doctor.email }}</td>
+    <td>{{ doctor.gender }}</td>
+    <td>{{ doctor.practiceSince }}</td>
+    <td>{{ doctor.specialization }}</td>
+    <td>{{ doctor.city }}</td>
+  </tr>
+</table>
+
 <ng-template #content let-modal>
   <div class="modal-header">
     <div class="panel-heading">
@@ -183,12 +184,12 @@
             <div class="col-6">
               <label for="dateOfBirth">Date of birth</label>
               <div class="input-group">
-                <!-- #dateOfBirth="ngModel" -->
                 <input
                   id="dateOfBirth"
                   class="form-control"
                   name="dateOfBirth"
                   ngbDatepicker
+                  [(ngModel)]="model"
                   #dateOfBirth="ngbDatepicker"
                   placeholder="yyyy-mm-dd"
                 />
@@ -207,9 +208,10 @@
                 <input
                   id="practiceSince"
                   class="form-control"
-                  name="dp"
+                  name="practiceSince"
+                  [(ngModel)]="model"
                   ngbDatepicker
-                  placeholder="dd-mm-yyyy"
+                  placeholder="yyyy-mm-dd"
                   #practiceSince="ngbDatepicker"
                 />
                 <div class="input-group-append">

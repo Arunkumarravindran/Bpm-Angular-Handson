@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgbDate, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 import { GetDoctorDetailsService } from "src/app/get-doctor-details.service";
 
