@@ -1,8 +1,242 @@
-<div class = "searchcontent">
- <app-search_Table_Details (searchTextop) = 'searchPoduct($event)'></app-search_Table_Details>
- <span>
-  <button style="position: absolute; right: 0;" class = "doctorButton"><i class="fa fa-stethoscope" aria-hidden="true"></i>Add Doctor</button><span></span>
-  <button style="position: absolute; right: 0;" class = "pharmacyButton"><i class="fa fa-medkit" aria-hidden="true"></i>Add Pharmacy</button>
-</span>
+<div class="searchcontent">
+  <app-search_Table_Details
+    (searchTextop)="searchPoduct($event)"
+  ></app-search_Table_Details>
+  <span>
+    <button
+      style="position: absolute; right: 0;"
+      class="btn doctorButton"
+      (click)="open(content)"
+    >
+      <i class="fa fa-stethoscope" aria-hidden="true"></i>Add Doctor</button
+    ><span></span>
+    <button style="position: absolute; right: 0;" class="btn pharmacyButton">
+      <i class="fa fa-medkit" aria-hidden="true"></i>Add Pharmacy
+    </button>
+  </span>
 </div>
-  
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <div class="panel-heading">
+      <h4 class="modal-title" id="modal-basic-title">Doctor Details</h4>
+    </div>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-12">
+      <form #formValues="ngForm" (ngSubmit)="save(formValues.value)">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-6">
+              <label for="firstName">First Name</label>
+              <input
+                #firstName="ngModel"
+                ngModel
+                name="firstName"
+                id="firstName"
+                type="text"
+                class="form-control"
+                placeholder="First Name"
+                required
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="firstName.touched && firstName.invalid"
+              >
+                First Name is Required
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="lastName">Last Name</label>
+              <input
+                #lastName="ngModel"
+                ngModel
+                name="lastName"
+                id="lastName"
+                type="text"
+                class="form-control"
+                placeholder="Last Name"
+                required
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="lastName.touched && lastName.invalid"
+              >
+                Last Name is Required
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label for="speciality">Speciality</label>
+              <select
+                ngModel
+                #speciality="ngModel"
+                name="speciality"
+                id="speciality"
+                class="form-control"
+                required
+              >
+                <option value="">Add Speciality(multi)</option>
+                <option *ngFor="let item of specialities$" value="item.name">
+                  {{ item.name }}
+                </option>
+              </select>
+              <div
+                class="alert alert-danger"
+                *ngIf="speciality.touched && speciality.invalid"
+              >
+                Venue Type is Required
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="gender">Gender</label>
+              <select
+                ngModel
+                #gender="ngModel"
+                name="gender"
+                id="gender"
+                class="form-control"
+                required
+              >
+                <option value="">Select</option>
+                <option *ngFor="let item of genders$" value="item.name">
+                  {{ item.name }}
+                </option>
+              </select>
+              <div
+                class="alert alert-danger"
+                *ngIf="gender.touched && gender.invalid"
+              >
+                Gender is Required
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label for="email">Email</label>
+              <input
+                #email="ngModel"
+                ngModel
+                name="email"
+                id="email"
+                type="text"
+                class="form-control"
+                placeholder="Email"
+                required
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="email.touched && email.invalid"
+              >
+                Email is Required
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="mobileNumber">Mobile Number</label>
+              <input
+                #mobileNumber="ngModel"
+                ngModel
+                name="mobileNumber"
+                id="mobileNumber"
+                type="text"
+                class="form-control"
+                placeholder="Mobile Number"
+                required
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="mobileNumber.touched && mobileNumber.invalid"
+              >
+                Mobile Number is Required
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label for="dateOfBirth">Date of birth</label>
+              <div class="input-group">
+                <!-- #dateOfBirth="ngModel" -->
+                <input
+                  id="dateOfBirth"
+                  class="form-control"
+                  name="dateOfBirth"
+                  ngbDatepicker
+                  #dateOfBirth="ngbDatepicker"
+                  placeholder="yyyy-mm-dd"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary calendar"
+                    (click)="dateOfBirth.toggle()"
+                    type="button"
+                  ></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="practiceSince">Practice Since</label>
+              <div class="input-group">
+                <input
+                  id="practiceSince"
+                  class="form-control"
+                  name="dp"
+                  ngbDatepicker
+                  placeholder="dd-mm-yyyy"
+                  #practiceSince="ngbDatepicker"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary calendar"
+                    (click)="practiceSince.toggle()"
+                    type="button"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label for="address">Address</label>
+              <textarea
+                #address="ngModel"
+                ngModel
+                name="address"
+                id="address"
+                type="text"
+                class="form-control"
+                placeholder=""
+                required
+              ></textarea>
+              <div
+                class="alert alert-danger"
+                *ngIf="address.touched && address.invalid"
+              >
+                Address is Required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer ">
+          <div class="form-group">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="modal.close('Save click')"
+            >
+              <i class="fa fa-stethoscope" aria-hidden="true"></i>Add Doctor
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>
