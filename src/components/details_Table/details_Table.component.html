@@ -15,7 +15,7 @@
     <th>Specialaization</th>
     <th>City</th>
     </tr>
-    <tr *ngFor="let doctor of doctorDetails">
+    <tr *ngFor="let doctor of doctorDetails |table_details_search : searchText">
       <td>{{doctor.fullName}}</td>
       <td>{{doctor.mobileNo}}</td>
       <td>{{doctor.email}}</td>

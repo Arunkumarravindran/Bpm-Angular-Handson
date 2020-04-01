@@ -17,11 +17,7 @@ export class Table_details_searchPipe implements PipeTransform {
 console.log('serchtext',searchText)
 
     return items.filter(value => {
-      const name = value.name.toLowerCase().includes(searchText.toLowerCase())
-      const email = value.email.toLowerCase().includes(searchText.toLowerCase())
-      const city = value.city.toLowerCase().includes(searchText.toLowerCase())
-      const specialites = value.specialites.toLowerCase().includes(searchText.toLowerCase())
-      return (name + email + city + specialites);
+      return (( (value.fullName.search(new RegExp(searchText, "i")) != -1))||( (value.email.search(new RegExp(searchText, "i")) != -1)))||( (value.city.search(new RegExp(searchText, "i")) != -1))||( (value.specialization.search(new RegExp(searchText, "i")) != -1));
     });
   }
 }
