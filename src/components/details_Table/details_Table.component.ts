@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetDoctorDetailsService } from 'src/app/get-doctor-details.service';
 
 @Component({
   selector: 'app-details_Table',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Details_TableComponent implements OnInit {
   searchText: string;
-  constructor() { }
-
-  ngOnInit() {
+  doctorDetails:object;
+ 
+  constructor(private getDoctorDetailsService : GetDoctorDetailsService) { }
+ 
+  ngOnInit() {      
+    this.getDoctorDetailsService.getDoctorDetails().subscribe(data=>
+      {
+        this.doctorDetails=data;
+        console.log(this.doctorDetails);
+      })
+                                                                                                                                                                                                                                                                                                                                                         
   }
 
   searchPoduct(data){
