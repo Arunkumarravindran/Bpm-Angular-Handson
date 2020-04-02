@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class GetDoctorDetailsService {
-  private_url:string="https://api.myjson.com/bins/kt8o8";
+  private_url:string="https://api.myjson.com/bins/dnmr4";
 
   constructor(private http:HttpClient) { }
   getDoctorDetails()
