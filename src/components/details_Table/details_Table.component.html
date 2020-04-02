@@ -21,32 +21,28 @@
   </span>
 </div>
 
-
 <table class="doctor">
   <tr>
-<th class='.table'>Full Name</th>
-<th class='.table'> Mobile No</th>
-<th class='.table'>Email</th>
-<th class='.table'>Gender</th>
-<th class='.table'>Practice Since</th>
-<th class='.table'>Specialaization</th>
-<th class='.table'>City</th>
-<th class='.table'>Edit</th>
-</tr>
-<tr *ngFor="let doctor of doctorDetails |table_details_search : searchText">
-  <td>{{doctor.fisrtName+' '+doctor.lastName}}</td>
-  <td>{{doctor.mobileNo}}</td>
-  <td>{{doctor.email}}</td>
-  <td>{{doctor.gender}}</td>
-  <td>{{doctor.practiceSince}}</td>
-  <td>{{doctor.specialization}}</td>
-  <td>{{doctor.city}}</td>
-  <td>mode</td>
-  
+    <th class=".table">Full Name</th>
+    <th class=".table">Mobile No</th>
+    <th class=".table">Email</th>
+    <th class=".table">Gender</th>
+    <th class=".table">Practice Since</th>
+    <th class=".table">Specialaization</th>
+    <th class=".table">City</th>
+    <th class=".table">Edit</th>
   </tr>
-
+  <tr *ngFor="let doctor of doctorDetails | table_details_search: searchText">
+    <td>{{ doctor.fisrtName + " " + doctor.lastName }}</td>
+    <td>{{ doctor.mobileNo }}</td>
+    <td>{{ doctor.email }}</td>
+    <td>{{ doctor.gender }}</td>
+    <td>{{ doctor.practiceSince }}</td>
+    <td>{{ doctor.specialization }}</td>
+    <td>{{ doctor.city }}</td>
+    <td>mode</td>
+  </tr>
 </table>
-
 
 <ng-template #content let-modal>
   <div class="modal-header">
@@ -270,9 +266,17 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer ">
+        <div class="modal-footer">
+          <div class="form-group mr-auto">
+            <button type="submit" class="btn btn-sm btn-light panel-heading">
+              Add Multiple
+            </button>
+            <button type="submit" class="btn btn-sm btn-success">
+              <i class="fa fa-upload" aria-hidden="true"></i>Upload Excel
+            </button>
+          </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-sm btn-primary">
               <!-- ng-click="save(formValues)" -->
               <!-- (click)="modal.close('Save click')" -->
               <i class="fa fa-stethoscope" aria-hidden="true"></i>Add Doctor
