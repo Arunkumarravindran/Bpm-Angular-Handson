@@ -4,13 +4,18 @@
   ></app-search_Table_Details>
   <span>
     <button
+      type="button"
       style="position: absolute; right: 0;"
       class="btn doctorButton"
       (click)="open(content)"
     >
       <i class="fa fa-stethoscope" aria-hidden="true"></i>Add Doctor</button
     ><span></span>
-    <button style="position: absolute; right: 0;" class="btn pharmacyButton">
+    <button
+      type="button"
+      style="position: absolute; right: 0;"
+      class="btn pharmacyButton"
+    >
       <i class="fa fa-medkit" aria-hidden="true"></i>Add Pharmacy
     </button>
   </span>
@@ -24,18 +29,17 @@
     <th>Practice Since</th>
     <th>Specialaization</th>
     <th>City</th>
-
-    </tr>
-    <tr *ngFor="let doctor of doctorDetails |table_details_search : searchText">
-      <td>{{doctor.fullName}}</td>
-      <td>{{doctor.mobileNo}}</td>
-      <td>{{doctor.email}}</td>
-      <td>{{doctor.gender}}</td>
-      <td>{{doctor.practiceSince}}</td>
-      <td>{{doctor.specialization}}</td>
-      <td>{{doctor.city}}</td>
-    </tr>
-  </table>
+  </tr>
+  <tr *ngFor="let doctor of doctorDetails | table_details_search: searchText">
+    <td>{{ doctor.fullName }}</td>
+    <td>{{ doctor.mobileNo }}</td>
+    <td>{{ doctor.email }}</td>
+    <td>{{ doctor.gender }}</td>
+    <td>{{ doctor.practiceSince }}</td>
+    <td>{{ doctor.specialization }}</td>
+    <td>{{ doctor.city }}</td>
+  </tr>
+</table>
 
 <ng-template #content let-modal>
   <div class="modal-header">
@@ -101,13 +105,13 @@
               <select
                 ngModel
                 #speciality="ngModel"
-                name="speciality"
                 id="speciality"
+                name="speciality"
                 class="form-control"
                 required
               >
                 <option value="">Add Speciality(multi)</option>
-                <option *ngFor="let item of specialities$" value="item.name">
+                <option *ngFor="let item of specialities$">
                   {{ item.name }}
                 </option>
               </select>
@@ -129,7 +133,7 @@
                 required
               >
                 <option value="">Select</option>
-                <option *ngFor="let item of genders$" value="item.name">
+                <option *ngFor="let item of genders$">
                   {{ item.name }}
                 </option>
               </select>
@@ -153,12 +157,18 @@
                 class="form-control"
                 placeholder="Email"
                 required
+                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               />
               <div
                 class="alert alert-danger"
                 *ngIf="email.touched && email.invalid"
               >
-                Email is Required
+                <div *ngIf="email.errors.required">
+                  Email is Required.
+                </div>
+                <div *ngIf="email.errors.pattern">
+                  Please provide valid Email.
+                </div>
               </div>
             </div>
             <div class="col-6">
@@ -169,6 +179,7 @@
                 name="mobileNumber"
                 id="mobileNumber"
                 type="text"
+                onkeypress="return event.charCode != 45"
                 class="form-control"
                 placeholder="Mobile Number"
                 required
@@ -177,7 +188,12 @@
                 class="alert alert-danger"
                 *ngIf="mobileNumber.touched && mobileNumber.invalid"
               >
-                Mobile Number is Required
+                <div *ngIf="mobileNumber.errors.required">
+                  Mobile Number is Required.
+                </div>
+                <div *ngIf="mobileNumber.errors.onkeypress">
+                  Mobile Number should be 2 or higher.
+                </div>
               </div>
             </div>
           </div>
@@ -209,7 +225,7 @@
                 <input
                   id="practiceSince"
                   class="form-control"
-                  name="practiceSince"s
+                  name="practiceSince"
                   [(ngModel)]="model"
                   ngbDatepicker
                   placeholder="yyyy-mm-dd"
@@ -249,11 +265,9 @@
         </div>
         <div class="modal-footer ">
           <div class="form-group">
-            <button
-              type="button"
-              class="btn btn-primary"
-              (click)="modal.close('Save click')"
-            >
+            <button type="submit" class="btn btn-primary">
+              <!-- ng-click="save(formValues)" -->
+              <!-- (click)="modal.close('Save click')" -->
               <i class="fa fa-stethoscope" aria-hidden="true"></i>Add Doctor
             </button>
           </div>
@@ -262,4 +276,3 @@
     </div>
   </div>
 </ng-template>
-
