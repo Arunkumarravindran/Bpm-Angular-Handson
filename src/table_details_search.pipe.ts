@@ -16,7 +16,7 @@ export class Table_details_searchPipe implements PipeTransform {
 
     return items.filter(value => {
       return (
-        value.fisrtName.search(new RegExp(searchText, "i")) != -1 ||
+        value.firstName.search(new RegExp(searchText, "i")) != -1 ||
         value.lastName.search(new RegExp(searchText, "i")) != -1 ||
         value.email.search(new RegExp(searchText, "i")) != -1 ||
         value.city.search(new RegExp(searchText, "i")) != -1 ||
