@@ -33,24 +33,25 @@
   color: rgb(2, 117, 216);
   /* color: skyblue; */
 }
-  .doctor {
+  .doctorTable {
     font-family: "Trebuchet MS", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
     height: 100%;
     margin-top: 40px;
+    margin-left: 20px;
+    width: 98%
   }
   
-  .doctor td, .doctor th {
+  .doctorTable td, .doctorTable th {
     border: 1px solid #ddd;
     padding: 8px;
   }
   
-  .doctor tr:nth-child(even){background-color: #f2f2f2;}
+  .doctorTable tr:nth-child(even){background-color: #f2f2f2;}
   
-  .doctor tr:hover {background-color: #ddd;}
+  .doctorTable tr:hover {background-color: #ddd;}
   
-  .doctor th {
+  .doctorTable th {
     padding-top:9px;
     padding-bottom: 12px;
     text-align: left;
