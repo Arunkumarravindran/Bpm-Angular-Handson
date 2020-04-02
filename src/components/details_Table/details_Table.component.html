@@ -15,26 +15,28 @@
     </button>
   </span>
 </div>
-<table>
+<table style="width:100%">
   <tr>
-    <th>Full Name</th>
-    <th>Mobile No</th>
-    <th>Email</th>
-    <th>Gender</th>
-    <th>Practice Since</th>
-    <th>Specialaization</th>
-    <th>City</th>
-
+    <th class='.table'>Full Name</th>
+    <th class='.table'> Mobile No</th>
+    <th class='.table'>Email</th>
+    <th class='.table'>Gender</th>
+    <th class='.table'>Practice Since</th>
+    <th class='.table'>Specialaization</th>
+    <th class='.table'>City</th>
+    <th class='.table'>Edit</th>
     </tr>
     <tr *ngFor="let doctor of doctorDetails |table_details_search : searchText">
-      <td>{{doctor.fullName}}</td>
+      <td>{{doctor.fisrtName+' '+doctor.lastName}}</td>
       <td>{{doctor.mobileNo}}</td>
       <td>{{doctor.email}}</td>
       <td>{{doctor.gender}}</td>
       <td>{{doctor.practiceSince}}</td>
       <td>{{doctor.specialization}}</td>
       <td>{{doctor.city}}</td>
-    </tr>
+      
+      </tr>
+   
   </table>
 
 <ng-template #content let-modal>
