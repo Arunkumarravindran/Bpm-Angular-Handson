@@ -7,6 +7,7 @@ import { Search_Table_DetailsComponent } from "../components/search_Table_Detail
 import { Details_TableComponent } from "../components/details_Table/details_Table.component";
 import { PopUp_DialogComponent } from "../components/popUp_Dialog/popUp_Dialog.component";
 import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 import { Table_details_searchPipe } from "../table_details_search.pipe";
 import { HttpClientModule } from "@angular/common/http";
 
@@ -21,6 +22,7 @@ import { HttpClientModule } from "@angular/common/http";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     NgbModule

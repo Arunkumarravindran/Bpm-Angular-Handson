@@ -20,6 +20,7 @@
     </button>
   </span>
 </div>
+<<<<<<< HEAD
 <hr class=".hr">
 <div class="table"><table class="doctorTable">
 <tr>
@@ -42,6 +43,32 @@
   <td>{{doctor.city}}</td>
   <td ><i class="fa fa-edit" aria-hidden="true"></i>
   </tr></table></div>
+=======
+
+<table class="doctorTable">
+  <tr>
+    <th>Full Name</th>
+    <th>Mobile No</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>Practice Since</th>
+    <th>Specialaization</th>
+    <th>City</th>
+    <th>Edit</th>
+  </tr>
+  <tr *ngFor="let doctor of doctorDetails | table_details_search: searchText">
+    <td>{{ doctor.fisrtName + " " + doctor.lastName }}</td>
+    <td>{{ doctor.mobileNo }}</td>
+    <td>{{ doctor.email }}</td>
+    <td>{{ doctor.gender }}</td>
+    <td>{{ doctor.practiceSince }}</td>
+    <td>{{ doctor.specialization }}</td>
+    <td>{{ doctor.city }}</td>
+    <td><i class="fa fa-edit" aria-hidden="true"></i></td>
+  </tr>
+</table>
+
+>>>>>>> fdd07c7d19166c22c7621c1677f274057092197f
 <ng-template #content let-modal>
   <div class="modal-header">
     <div class="panel-heading">
@@ -58,45 +85,50 @@
   </div>
   <div class="modal-body">
     <div class="col-md-12">
-      <form #formValues="ngForm" (ngSubmit)="save(formValues.value)">
+      <!-- #formValues="ngForm" -->
+      <form [formGroup]="registerForm" (ngSubmit)="save(registerForm.value)">
         <div class="form-group">
           <div class="row">
             <div class="col-6">
               <label for="firstName">First Name</label>
               <input
-                #firstName="ngModel"
-                ngModel
-                name="firstName"
-                id="firstName"
                 type="text"
+                formControlName="firstName"
+                id="firstName"
                 class="form-control"
                 placeholder="First Name"
-                required
+                [ngClass]="{
+                  'is-invalid': submitted && forms.firstName.errors
+                }"
               />
               <div
-                class="alert alert-danger"
-                *ngIf="firstName.touched && firstName.invalid"
+                *ngIf="submitted && forms.firstName.errors"
+                class="invalid-feedback"
               >
-                First Name is Required
+                <div *ngIf="forms.firstName.errors.required">
+                  First Name is required
+                </div>
               </div>
             </div>
             <div class="col-6">
               <label for="lastName">Last Name</label>
               <input
-                #lastName="ngModel"
-                ngModel
-                name="lastName"
+                formControlName="lastName"
                 id="lastName"
                 type="text"
                 class="form-control"
                 placeholder="Last Name"
-                required
+                [ngClass]="{
+                  'is-invalid': submitted && forms.lastName.errors
+                }"
               />
               <div
-                class="alert alert-danger"
-                *ngIf="lastName.touched && lastName.invalid"
+                *ngIf="submitted && forms.lastName.errors"
+                class="invalid-feedback"
               >
-                Last Name is Required
+                <div *ngIf="forms.lastName.errors.required">
+                  Last Name is required
+                </div>
               </div>
             </div>
           </div>
@@ -104,12 +136,12 @@
             <div class="col-6">
               <label for="speciality">Speciality</label>
               <select
-                ngModel
-                #speciality="ngModel"
                 id="speciality"
-                name="speciality"
+                formControlName="speciality"
                 class="form-control"
-                required
+                [ngClass]="{
+                  'is-invalid': submitted && forms.speciality.errors
+                }"
               >
                 <option value="">Add Speciality(multi)</option>
                 <option *ngFor="let item of specialities$">
@@ -117,21 +149,23 @@
                 </option>
               </select>
               <div
-                class="alert alert-danger"
-                *ngIf="speciality.touched && speciality.invalid"
+                *ngIf="submitted && forms.speciality.errors"
+                class="invalid-feedback"
               >
-                Venue Type is Required
+                <div *ngIf="forms.speciality.errors.required">
+                  Speciality is required
+                </div>
               </div>
             </div>
             <div class="col-6">
               <label for="gender">Gender</label>
               <select
-                ngModel
-                #gender="ngModel"
-                name="gender"
+                formControlName="gender"
                 id="gender"
                 class="form-control"
-                required
+                [ngClass]="{
+                  'is-invalid': submitted && forms.gender.errors
+                }"
               >
                 <option value="">Select</option>
                 <option *ngFor="let item of genders$">
@@ -139,10 +173,12 @@
                 </option>
               </select>
               <div
-                class="alert alert-danger"
-                *ngIf="gender.touched && gender.invalid"
+                *ngIf="submitted && forms.gender.errors"
+                class="invalid-feedback"
               >
-                Gender is Required
+                <div *ngIf="forms.gender.errors.required">
+                  Gender is required
+                </div>
               </div>
             </div>
           </div>
@@ -150,50 +186,44 @@
             <div class="col-6">
               <label for="email">Email</label>
               <input
-                #email="ngModel"
-                ngModel
-                name="email"
+                formControlName="email"
                 id="email"
                 type="text"
                 class="form-control"
                 placeholder="Email"
-                required
-                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                [ngClass]="{ 'is-invalid': submitted && forms.email.errors }"
               />
               <div
-                class="alert alert-danger"
-                *ngIf="email.touched && email.invalid"
+                *ngIf="submitted && forms.email.errors"
+                class="invalid-feedback"
               >
-                <div *ngIf="email.errors.required">
-                  Email is Required.
-                </div>
-                <div *ngIf="email.errors.pattern">
-                  Please provide valid Email.
+                <div *ngIf="forms.email.errors.required">Email is required</div>
+                <div *ngIf="forms.email.errors.email">
+                  Email must be a valid email address
                 </div>
               </div>
             </div>
             <div class="col-6">
               <label for="mobileNumber">Mobile Number</label>
               <input
-                #mobileNumber="ngModel"
-                ngModel
-                name="mobileNumber"
+                formControlName="mobileNumber"
                 id="mobileNumber"
                 type="text"
-                onkeypress="return event.charCode != 45"
                 class="form-control"
                 placeholder="Mobile Number"
-                required
+                [ngClass]="{
+                  'is-invalid': submitted && forms.mobileNumber.errors
+                }"
               />
               <div
-                class="alert alert-danger"
-                *ngIf="mobileNumber.touched && mobileNumber.invalid"
+                *ngIf="submitted && forms.mobileNumber.errors"
+                class="invalid-feedback"
               >
-                <div *ngIf="mobileNumber.errors.required">
-                  Mobile Number is Required.
+                <div *ngIf="forms.mobileNumber.errors.required">
+                  Mobile Number is required
                 </div>
-                <div *ngIf="mobileNumber.errors.onkeypress">
-                  Mobile Number should be 2 or higher.
+                <div *ngIf="forms.mobileNumber.errors.minlength">
+                  Mobile Number must have 10 digits
                 </div>
               </div>
             </div>
@@ -205,18 +235,29 @@
                 <input
                   id="dateOfBirth"
                   class="form-control"
-                  name="dateOfBirth"
+                  formControlName="dateOfBirth"
                   ngbDatepicker
-                  [(ngModel)]="model"
                   #dateOfBirth="ngbDatepicker"
                   placeholder="yyyy-mm-dd"
+                  [ngClass]="{
+                    'is-invalid': submitted && forms.dateOfBirth.errors
+                  }"
                 />
+
                 <div class="input-group-append">
                   <button
                     class="btn btn-outline-secondary calendar"
                     (click)="dateOfBirth.toggle()"
                     type="button"
                   ></button>
+                </div>
+                <div
+                  *ngIf="submitted && forms.dateOfBirth.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="forms.dateOfBirth.errors.required">
+                    Date Of Birth is required
+                  </div>
                 </div>
               </div>
             </div>
@@ -226,8 +267,10 @@
                 <input
                   id="practiceSince"
                   class="form-control"
-                  name="practiceSince"
-                  [(ngModel)]="model"
+                  formControlName="practiceSince"
+                  [ngClass]="{
+                    'is-invalid': submitted && forms.practiceSince.errors
+                  }"
                   ngbDatepicker
                   placeholder="yyyy-mm-dd"
                   #practiceSince="ngbDatepicker"
@@ -239,6 +282,14 @@
                     type="button"
                   ></button>
                 </div>
+                <div
+                  *ngIf="submitted && forms.practiceSince.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="forms.practiceSince.errors.required">
+                    PracticeSince is required
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -246,30 +297,30 @@
             <div class="col-12">
               <label for="address">Address</label>
               <textarea
-                #address="ngModel"
-                ngModel
-                name="address"
+                formControlName="address"
                 id="address"
                 type="text"
                 class="form-control"
                 placeholder=""
-                required
+                [ngClass]="{ 'is-invalid': submitted && forms.address.errors }"
               ></textarea>
               <div
-                class="alert alert-danger"
-                *ngIf="address.touched && address.invalid"
+                *ngIf="submitted && forms.address.errors"
+                class="invalid-feedback"
               >
-                Address is Required
+                <div *ngIf="forms.address.errors.required">
+                  Address is required
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <div class="form-group mr-auto">
-            <button type="submit" class="btn btn-sm btn-light panel-heading">
+            <button type="button" class="btn btn-sm btn-light panel-heading">
               Add Multiple
             </button>
-            <button type="submit" class="btn btn-sm btn-success">
+            <button type="button" class="btn btn-sm btn-success">
               <i class="fa fa-upload" aria-hidden="true"></i>Upload Excel
             </button>
           </div>
