@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { NgbDate, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 import { GetDoctorDetailsService } from "src/app/get-doctor-details.service";
 
@@ -12,7 +12,7 @@ export class Details_TableComponent implements OnInit {
   searchText: string;
 
   doctorDetails: object;
-  closeResult = "";
+  // submitted = false;
   genders$ = [{ name: "Male" }, { name: "Female" }, { name: "Others" }];
   specialities$ = [
     { name: "Cardiologist" },
@@ -44,7 +44,12 @@ export class Details_TableComponent implements OnInit {
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
-  save(temp) {
-    console.log("Form Values :", temp);
+  save(formValues) {
+    console.log("Form Values :", formValues);
+    //any post call link..
+    this.close(formValues);
+  }
+  close(content) {
+    this.modalService.dismissAll(content);
   }
 }
