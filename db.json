@@ -74,6 +74,26 @@
       },
       "city": "chennai",
       "id": 6
+    },
+    {
+      "firstName": "Prudhvi",
+      "lastName": "Ram",
+      "specialization": "Neurology",
+      "gender": "Male",
+      "email": "ram@rheal.com",
+      "mobileNo": "8768768766",
+      "dateOfBirth": {
+        "year": 2020,
+        "month": 4,
+        "day": 24
+      },
+      "practiceSince": {
+        "year": 2020,
+        "month": 4,
+        "day": 30
+      },
+      "city": "Tirupathi",
+      "id": 7
     }
   ]
 }

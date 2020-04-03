@@ -33,40 +33,46 @@
   color: rgb(2, 117, 216);
   /* color: skyblue; */
 }
-.hr{
+.hr {
   display: block;
   margin-top: 0.2cm;
   margin-bottom: 0.5cm;
 }
-  .doctorTable {
-    font-family: "Trebuchet MS", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, Helvetica, sans-serif;
-    border-collapse: collapse;
-    height: 100%;
-    margin-top: 40px;
-    margin-left: 7px;
-    margin-right: 7px;
-    width: 98%
-  }
-  
-  .doctorTable td, .doctorTable th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .doctorTable tr:nth-child(even){background-color: #f2f2f2;}
-  
-  .doctorTable tr:hover {background-color: #ddd;}
-  
-  .doctorTable th {
-    padding-top:9px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: white;
-    color: rgb(90, 79, 79);
-  }  
-  .tableDiv{
-     border:ridge rgb(171, 233, 248) ;
-     margin-top: 20px;
-     margin-right: 10px;
-     margin-left: 20px;
-  }
+.doctorTable {
+  font-family: "Trebuchet MS", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif, Helvetica, sans-serif;
+  border-collapse: collapse;
+  height: 100%;
+  margin-top: 40px;
+  margin-left: 7px;
+  margin-right: 7px;
+  width: 98%;
+}
+
+.doctorTable td,
+.doctorTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.doctorTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.doctorTable tr:hover {
+  background-color: #ddd;
+}
+
+.doctorTable th {
+  padding-top: 9px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: white;
+  color: rgb(90, 79, 79);
+}
+.tableDiv {
+  border: ridge rgb(171, 233, 248);
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 20px;
+}
