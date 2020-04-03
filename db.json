@@ -74,6 +74,26 @@
       },
       "city": "chennai",
       "id": 6
+    },
+    {
+      "firstName": "sasd",
+      "lastName": "raj",
+      "specialization": "Gynecology",
+      "gender": "Female",
+      "email": "arunkumar.ravindran@bpmlinks.com",
+      "mobileNo": "78778787878",
+      "dateOfBirth": {
+        "year": 2020,
+        "month": 3,
+        "day": 31
+      },
+      "practiceSince": {
+        "year": 2020,
+        "month": 4,
+        "day": 23
+      },
+      "city": "str",
+      "id": 7
     }
   ]
 }

@@ -30,4 +30,7 @@ export class Details_TableComponent implements OnInit {
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
+  getId(e){
+console.log(e)
+  }
 }

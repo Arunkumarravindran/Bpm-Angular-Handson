@@ -22,6 +22,14 @@ private_url:string="http://localhost:3000/doctorList";
         return "success";
       }));
 }
+
+updateDoctor(data) {
+  return this.http.put(this.saveDoctorUrl, data).pipe(retry(2),
+  catchError(this.handleError)
+  , map(responseBody => { 
+      return "success";
+    }));
+}
 handleError(error: HttpErrorResponse) {
 console.log("Error Handling Works");
 return throwError(error);
