@@ -1,5 +1,5 @@
 {
-    "doctorList" : [
+  "doctorList": [
     {
       "id": 1,
       "firstName": "Dr.Malathi",
@@ -54,6 +54,26 @@
       "practiceSince": "01/03/2015",
       "specialization": "Neurology",
       "city": "Madurai"
+    },
+    {
+      "firstName": "Dr.Srini",
+      "lastName": "Vasan",
+      "specialization": "Diabetologist",
+      "gender": "Male",
+      "email": "srini@admin.com",
+      "mobileNo": "78778787878",
+      "dateOfBirth": {
+        "year": 2020,
+        "month": 3,
+        "day": 31
+      },
+      "practiceSince": {
+        "year": 2020,
+        "month": 4,
+        "day": 23
+      },
+      "city": "chennai",
+      "id": 6
     }
   ]
 }

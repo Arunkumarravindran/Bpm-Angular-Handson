@@ -11,6 +11,7 @@ import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 export class DoctorDetailsFormComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
+  error : string;
   genders$ = [{ name: "Male" }, { name: "Female" }, { name: "Others" }];
   specialities$ = [
     { name: "Cardiologist" },
@@ -58,8 +59,19 @@ export class DoctorDetailsFormComponent implements OnInit {
       return;
     }
     //any post call link..
-    this.getDoctorDetailsService.saveDoctor(formValues);
-    this.close(formValues);
+    this.getDoctorDetailsService.saveDoctor(formValues).subscribe(
+      data => {
+
+        if (data == "success") {
+          console.log("router works")
+          this.close(formValues);
+        }
+      },
+      error => {
+        this.error = error.message;
+        
+      });
+   
   }
   close(content) {
     this.modalService.dismissAll(content);
