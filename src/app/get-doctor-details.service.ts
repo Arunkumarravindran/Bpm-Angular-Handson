@@ -33,7 +33,7 @@ updateDoctor(data) {
   return this.http.patch(this.saveDoctorUrl+"/"+this.updateId, data).pipe(retry(2),
   catchError(this.handleError)
   , map(responseBody => { 
-      return "success";
+      return "succes";
     }));
 }
 
