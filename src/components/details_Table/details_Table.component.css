@@ -13,6 +13,7 @@
   font-size: 14px;
   margin: 4px 2px;
   cursor: pointer;
+  margin-right: 8px;
 }
 
 .doctorButton {
@@ -81,6 +82,7 @@
 .doctorButn{
   background-color: transparent;
   border-color: transparent;
+  margin-left: 6px;
 }
 .pharmacyButn{
 background-color: transparent;
