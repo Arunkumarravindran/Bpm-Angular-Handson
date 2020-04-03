@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-
+import { Router} from '@angular/router';
 import { GetDoctorDetailsService } from "src/app/get-doctor-details.service";
 
 @Component({
@@ -10,11 +10,13 @@ import { GetDoctorDetailsService } from "src/app/get-doctor-details.service";
 })
 export class Details_TableComponent implements OnInit {
   searchText: string;
-
+  doctorTable = false;
+  pharmacyTable = true;
   doctorDetails: object;
   constructor(
     private getDoctorDetailsService: GetDoctorDetailsService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -24,6 +26,16 @@ export class Details_TableComponent implements OnInit {
     });
   }
 
+  openDocterTable()
+  {
+     this.doctorTable = false;
+     this.pharmacyTable = true;
+  }
+  openPhamacyTable(){
+    this.doctorTable = true;
+    this.pharmacyTable = false;
+  }
+  
   searchPoduct(data) {
     this.searchText = data;
   }

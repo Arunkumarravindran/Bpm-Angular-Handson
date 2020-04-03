@@ -5,11 +5,17 @@ import { Details_TableComponent } from "../components/details_Table/details_Tabl
 import { PopUp_DialogComponent } from "../components/popUp_Dialog/popUp_Dialog.component";
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
+import {Pharmacy_DetailsComponent} from '../components/pharmacy_Details/pharmacy_Details.component'
+
 
 const routes: Routes = [
   {
     path: "search",
     component: Search_Table_DetailsComponent
+  },
+  {
+    path: "pharmacyDetails",
+    component: Pharmacy_DetailsComponent
   },
   {
     path: "displayDetails",

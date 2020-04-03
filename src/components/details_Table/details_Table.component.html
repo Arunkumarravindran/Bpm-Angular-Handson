@@ -20,8 +20,12 @@
     </button>
   </span>
 </div>
+<hr>
+
 <div class="tableDiv">
-  <table class="doctorTable">
+  <button class = "doctorButn" (click) = "openDocterTable()">Doctor</button>
+  <button class = "pharmacyButn" (click) = "openPhamacyTable()">Pharmacy</button>
+  <table class="doctorTable"  [hidden] = 'doctorTable'>
     <tr>
       <th>Full Name</th>
       <th>Mobile No</th>
@@ -43,6 +47,9 @@
       <td><a (click)="openUpdate(updateForm, doctor.id)"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
     </tr>
   </table>
+  <div [hidden] = "pharmacyTable">
+    <app-pharmacy_Details></app-pharmacy_Details>
+  </div>
 </div>
 <ng-template #content let-modal>
   <app-doctor-details-form></app-doctor-details-form>

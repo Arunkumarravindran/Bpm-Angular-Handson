@@ -12,6 +12,8 @@ import { Table_details_searchPipe } from "../table_details_search.pipe";
 import { HttpClientModule } from "@angular/common/http";
 import { DoctorDetailsFormComponent } from "../components/doctor-details-form/doctor-details-form.component";
 import{Update_doctorDetailsComponent} from '../components/update_doctorDetails/update_doctorDetails.component'
+import {Pharmacy_DetailsComponent} from '../components/pharmacy_Details/pharmacy_Details.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import{Update_doctorDetailsComponent} from '../components/update_doctorDetails/u
     PopUp_DialogComponent,
     Table_details_searchPipe,
     DoctorDetailsFormComponent,
-    Update_doctorDetailsComponent
+    Update_doctorDetailsComponent,
+    Pharmacy_DetailsComponent
   ],
   entryComponents: [
     PopUp_DialogComponent

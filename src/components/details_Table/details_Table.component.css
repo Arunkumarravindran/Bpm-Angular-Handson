@@ -39,14 +39,14 @@
   margin-bottom: 0.5cm;
 }
 .doctorTable {
-  font-family: "Trebuchet MS", Cambria, Cochin, Georgia, Times,
-    "Times New Roman", serif, Helvetica, sans-serif;
-  border-collapse: collapse;
-  height: 100%;
-  margin-top: 40px;
-  margin-left: 7px;
-  margin-right: 7px;
-  width: 98%;
+  font-family: "Trebuchet MS", Cambria, Cochin, Georgia, Times, "Times New Roman", serif, Helvetica, sans-serif;
+    border-collapse: collapse;
+    height: 100%;
+    margin-top: 15px;
+    margin-left: 13px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 98%;
 }
 
 .doctorTable td,
@@ -72,7 +72,23 @@
 }
 .tableDiv {
   border: ridge rgb(171, 233, 248);
+  width: 98%;
+  height: 100%;
   margin-top: 20px;
   margin-right: 10px;
   margin-left: 20px;
+}
+.doctorButn{
+  background-color: transparent;
+  border-color: transparent;
+}
+.pharmacyButn{
+background-color: transparent;
+    border-color: transparent;
+}
+.doctorButn:hover {
+  background-color: rgb(206, 238, 247);
+}
+.pharmacyButn:hover {
+  background-color:rgb(206, 238, 247);
 }
