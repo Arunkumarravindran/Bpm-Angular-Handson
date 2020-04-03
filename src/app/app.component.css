@@ -1,39 +1,44 @@
-
 .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  
-  .topnav {
-    background-color: #B0EDEE;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-  
-  
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    background-color: rgb(199, 205, 233);
-    color: white;
-  }
-  
-  .topnav a.welcometxt {
-    position: absolute;
-    top: -11px;
-    right: 16px;
-    font-size: 18px;
-  }
+  float: left;
+  color: white;
+  text-align: left;
+  padding: 14px 0px 0px 0px;
+  text-decoration: none;
+  font-size: 17px;
+}
 
-  .topnav a.logoutTxt{
-    position: absolute;
-    top: 10px;
-    right: 16px;
-    font-size: 16px;
-  }
+.topnav {
+  /* background-color: #b0edee; */
+  background-image: linear-gradient(
+    to right,
+    rgb(104, 204, 211),
+    rgb(75, 216, 209)
+  );
+  font-feature-settings: "akhn";
+  padding: 12px 0px 0px 12px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  /* background-color: rgb(199, 205, 233);
+  color: white; */
+  color: rgb(116, 81, 156);
+}
+
+.topnav a.welcometxt {
+  position: absolute;
+  top: -11px;
+  right: 16px;
+  font-size: 18px;
+}
+
+.topnav a.logoutTxt {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  font-size: 16px;
+}
