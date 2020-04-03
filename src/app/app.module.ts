@@ -10,6 +10,7 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { Table_details_searchPipe } from "../table_details_search.pipe";
 import { HttpClientModule } from "@angular/common/http";
+import { DoctorDetailsFormComponent } from "../components/doctor-details-form/doctor-details-form.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from "@angular/common/http";
     Search_Table_DetailsComponent,
     Details_TableComponent,
     PopUp_DialogComponent,
-    Table_details_searchPipe
+    Table_details_searchPipe,
+    DoctorDetailsFormComponent
   ],
   imports: [
     BrowserModule,
