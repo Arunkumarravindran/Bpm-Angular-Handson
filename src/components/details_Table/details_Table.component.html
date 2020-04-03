@@ -40,11 +40,16 @@
       <td>{{ doctor.practiceSince }}</td>
       <td>{{ doctor.specialization }}</td>
       <td>{{ doctor.city }}</td>
-      <td><a  (click) = "getId($event)"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+      <td><a (click)="openUpdate(updateForm, doctor.id)"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
     </tr>
   </table>
 </div>
 <ng-template #content let-modal>
   <app-doctor-details-form></app-doctor-details-form>
+</ng-template>
+
+
+<ng-template #updateForm let-modal>
+  <app-update_doctorDetails></app-update_doctorDetails>
 </ng-template>
 

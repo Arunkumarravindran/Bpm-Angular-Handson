@@ -23,7 +23,9 @@ export class PopUp_DialogComponent {
         }
       );
   }
-
+  update(content,id) {
+    this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
+  }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return "by pressing ESC";

@@ -6,10 +6,11 @@ import { map, catchError, retry } from 'rxjs/operators';
   providedIn: "root"
 })
 export class GetDoctorDetailsService {
+ 
 
 private_url:string="http://localhost:3000/doctorList";
   saveDoctorUrl: string = "http://localhost:3000/doctorList";
-  id : Number;
+  updateId : Number;
 
   constructor(private http: HttpClient) {}
   getDoctorDetails() {
@@ -23,13 +24,19 @@ private_url:string="http://localhost:3000/doctorList";
       }));
 }
 
+setUpdateId(id){
+  this.updateId = id;
+}
+
 updateDoctor(data) {
-  return this.http.put(this.saveDoctorUrl, data).pipe(retry(2),
+  console.log("show update id",  this.updateId)
+  return this.http.patch(this.saveDoctorUrl+"/"+this.updateId, data).pipe(retry(2),
   catchError(this.handleError)
   , map(responseBody => { 
       return "success";
     }));
 }
+
 handleError(error: HttpErrorResponse) {
 console.log("Error Handling Works");
 return throwError(error);

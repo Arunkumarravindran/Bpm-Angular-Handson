@@ -1,0 +1,267 @@
+<div>
+  <div class="modal-header">
+          <div class="panel-heading">
+            <h4 class="modal-title" id="modal-basic-title">Update Details</h4>
+          </div>
+          <button
+            type="button"
+            class="close"
+            aria-label="Close"
+            (click)="close()"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12">
+            <!-- #formValues="ngForm" -->
+            <form [formGroup]="registerForm" (ngSubmit)="update(registerForm.value)">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-6">
+                    <label for="firstName">First Name</label>
+                    <input
+                      type="text"
+                      formControlName="firstName"
+                      id="firstName"
+                      class="form-control"
+                      placeholder="First Name"
+                      [ngClass]="{
+                        'is-invalid': submitted && forms.firstName.errors
+                      }"
+                    />
+                    <div
+                      *ngIf="submitted && forms.firstName.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="forms.firstName.errors.required">
+                        First Name is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label for="lastName">Last Name</label>
+                    <input
+                      formControlName="lastName"
+                      id="lastName"
+                      type="text"
+                      class="form-control"
+                      placeholder="Last Name"
+                      [ngClass]="{
+                        'is-invalid': submitted && forms.lastName.errors
+                      }"
+                    />
+                    <div
+                      *ngIf="submitted && forms.lastName.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="forms.lastName.errors.required">
+                        Last Name is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <label for="speciality">Speciality</label>
+                    <select
+                      id="speciality"
+                      formControlName="specialization"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid': submitted && forms.specialization.errors
+                      }"
+                    >
+                      <option value="">Add Speciality(multi)</option>
+                      <option *ngFor="let item of specialities$">
+                        {{ item.name }}
+                      </option>
+                    </select>
+                    <div
+                      *ngIf="submitted && forms.specialization.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="forms.specialization.errors.required">
+                        Speciality is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label for="gender">Gender</label>
+                    <select
+                      formControlName="gender"
+                      id="gender"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid': submitted && forms.gender.errors
+                      }"
+                    >
+                      <option value="">Select</option>
+                      <option *ngFor="let item of genders$">
+                        {{ item.name }}
+                      </option>
+                    </select>
+                    <div
+                      *ngIf="submitted && forms.gender.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="forms.gender.errors.required">
+                        Gender is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <label for="email">Email</label>
+                    <input
+                      formControlName="email"
+                      id="email"
+                      type="text"
+                      class="form-control"
+                      placeholder="Email"
+                      [ngClass]="{ 'is-invalid': submitted && forms.email.errors }"
+                    />
+                    <div
+                      *ngIf="submitted && forms.email.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="forms.email.errors.required">Email is required</div>
+                      <div *ngIf="forms.email.errors.email">
+                        Email must be a valid email city
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label for="mobileNo">Mobile Number</label>
+                    <input
+                      formControlName="mobileNo"
+                      id="mobileNo"
+                      type="text"
+                      class="form-control"
+                      placeholder="Mobile Number"
+                      [ngClass]="{
+                        'is-invalid': submitted && forms.mobileNo.errors
+                      }"
+                    />
+                    <div
+                      *ngIf="submitted && forms.mobileNo.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="forms.mobileNo.errors.required">
+                        Mobile Number is required
+                      </div>
+                      <div *ngIf="forms.mobileNo.errors.minlength">
+                        Mobile Number must have 10 digits
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <label for="dateOfBirth">Date of birth</label>
+                    <div class="input-group">
+                      <input
+                        id="dateOfBirth"
+                        class="form-control"
+                        formControlName="dateOfBirth"
+                        ngbDatepicker
+                        #dateOfBirth="ngbDatepicker"
+                        placeholder="yyyy-mm-dd"
+                        [ngClass]="{
+                          'is-invalid': submitted && forms.dateOfBirth.errors
+                        }"
+                      />
+      
+                      <div class="input-group-append">
+                        <button
+                          class="btn btn-outline-secondary calendar"
+                          (click)="dateOfBirth.toggle()"
+                          type="button"
+                        ></button>
+                      </div>
+                      <div
+                        *ngIf="submitted && forms.dateOfBirth.errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="forms.dateOfBirth.errors.required">
+                          Date Of Birth is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label for="practiceSince">Practice Since</label>
+                    <div class="input-group">
+                      <input
+                        id="practiceSince"
+                        class="form-control"
+                        formControlName="practiceSince"
+                        [ngClass]="{
+                          'is-invalid': submitted && forms.practiceSince.errors
+                        }"
+                        ngbDatepicker
+                        placeholder="yyyy-mm-dd"
+                        #practiceSince="ngbDatepicker"
+                      />
+                      <div class="input-group-append">
+                        <button
+                          class="btn btn-outline-secondary calendar"
+                          (click)="practiceSince.toggle()"
+                          type="button"
+                        ></button>
+                      </div>
+                      <div
+                        *ngIf="submitted && forms.practiceSince.errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="forms.practiceSince.errors.required">
+                          practiceSince is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <label for="city">Address</label>
+                    <textarea
+                      formControlName="city"
+                      id="city"
+                      type="text"
+                      class="form-control"
+                      placeholder="Address"
+                      [ngClass]="{ 'is-invalid': submitted && forms.city.errors }"
+                    ></textarea>
+                    <div
+                      *ngIf="submitted && forms.city.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="forms.city.errors.required">
+                        Address is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="form-group mr-auto">
+                  <button type="button" class="btn btn-sm btn-light panel-heading">
+                    Add Multiple
+                  </button>
+                  <button type="button" class="btn btn-sm btn-success">
+                    <i class="fa fa-upload" aria-hidden="true"></i>Upload Excel
+                  </button>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-sm btn-primary">
+                    <!-- ng-click="save(formValues)" -->
+                    <!-- (click)="modal.close('Save click')" -->
+                    <i class="fa fa-stethoscope" aria-hidden="true"></i>Update Details
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+</div>
