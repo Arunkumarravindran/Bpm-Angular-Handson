@@ -11,8 +11,9 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { Table_details_searchPipe } from "../table_details_search.pipe";
 import { HttpClientModule } from "@angular/common/http";
 import { DoctorDetailsFormComponent } from "../components/doctor-details-form/doctor-details-form.component";
-import{Update_doctorDetailsComponent} from '../components/update_doctorDetails/update_doctorDetails.component'
-import {Pharmacy_DetailsComponent} from '../components/pharmacy_Details/pharmacy_Details.component'
+import { Update_doctorDetailsComponent } from "../components/update_doctorDetails/update_doctorDetails.component";
+import { Pharmacy_DetailsComponent } from "../components/pharmacy_Details/pharmacy_Details.component";
+import { OrderListComponent } from "../components/order-list/order-list.component";
 
 @NgModule({
   declarations: [
@@ -23,11 +24,10 @@ import {Pharmacy_DetailsComponent} from '../components/pharmacy_Details/pharmacy
     Table_details_searchPipe,
     DoctorDetailsFormComponent,
     Update_doctorDetailsComponent,
-    Pharmacy_DetailsComponent
+    Pharmacy_DetailsComponent,
+    OrderListComponent
   ],
-  entryComponents: [
-    PopUp_DialogComponent
-  ],
+  entryComponents: [PopUp_DialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
