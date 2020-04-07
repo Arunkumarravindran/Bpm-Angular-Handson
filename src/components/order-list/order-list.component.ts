@@ -367,12 +367,4 @@ export class OrderListComponent implements OnInit {
       console.log(this.patientDetails);
     });
   }
-  // get countries(): Patient[] {
-  //   return this.patientDetails
-  //     .map((patient, i) => ({ id: i + 1, ...patient }))
-  //     .slice(
-  //       (this.page - 1) * this.pageSize,
-  //       (this.page - 1) * this.pageSize + this.pageSize
-  //     );
-  // }
 }
