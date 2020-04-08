@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Bpm-Angular-Handson"
+    }
+  },
+  "defaultProject": "Bpm-Angular-Handson",
+  "cli": {
+    "analytics": "c51caa4d-c1dd-4386-8e50-ff0c3d7a43e5"
+  }
 }

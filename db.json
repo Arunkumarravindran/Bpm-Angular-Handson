@@ -74,31 +74,141 @@
       },
       "city": "chennai",
       "id": 6
+    },
+    {
+      "firstName": "Dr.Suba",
+      "lastName": "M.muthamil",
+      "specialization": "Psychiatry",
+      "gender": "Female",
+      "email": "suba@gmail.com",
+      "mobileNo": "7788287654",
+      "dateOfBirth": {
+        "year": 1998,
+        "month": 3,
+        "day": 14
+      },
+      "practiceSince": {
+        "year": 2020,
+        "month": 3,
+        "day": 21
+      },
+      "city": "Madurai",
+      "id": 7
     }
   ],
   "patientOrderList": [
-    
-      {
-          "patientOrderKeyNb": 999,
-          "patientKeyNb": 5,
-          "appointmentKeyNb": 0,
-          "clinicKeyNb": 0,
-          "statusKeyNb": 1,
-          "orderStatusKeyNb": 1,
-          "lastModifiedId": 0,
-          "lastModifiedTimeStamp": null,
-          "insertById": 0,
-          "insertTimeStamp": null,
-          "firstName": "Alex",
-          "lastName": "Mathue",
-          "mobileNumber": "0174123685",
-          "emailId": "mathue@gmail.com",
-          "gender": "M",
-          "appointmentDate": 1588636800000,
-          "refill": "Y",
-          "orderStatus": null,
-          "statusName": null
-      }
+    {
+      "patientOrderKeyNb": 999,
+      "patientKeyNb": 5,
+      "appointmentKeyNb": 0,
+      "clinicKeyNb": 0,
+      "statusKeyNb": 1,
+      "orderStatusKeyNb": 1,
+      "lastModifiedId": 0,
+      "lastModifiedTimeStamp": null,
+      "insertById": 0,
+      "insertTimeStamp": null,
+      "firstName": "Alex",
+      "lastName": "Mathue",
+      "mobileNumber": "0174123685",
+      "emailId": "mathue@gmail.com",
+      "gender": "M",
+      "appointmentDate": 1588636800000,
+      "refill": "Y",
+      "orderStatus": null,
+      "statusName": null
+    }
+  ],
+  "pharmacylist": [
+    {
+      "id": 1,
+      "pharmacyName": "Vignesh",
+      "mobileNo": "9499957880",
+      "email": "vignesh@gmail.com",
+      "city": "Chennai",
+      "zipCode": "631205",
+      "address": "no:20,library street"
+    },
+    {
+      "id": 2,
+      "pharmacyName": "Jeshla",
+      "mobileNo": "9789624530",
+      "email": "jeshla@gmail.com",
+      "city": "Chennai",
+      "zipCode": "600046",
+      "address": "no:60,vgp street"
+    },
+    {
+      "id": 3,
+      "pharmacyName": "Nivya",
+      "mobileNo": "8945258600",
+      "email": "Nivya@gmail.com",
+      "city": "Coimbatore",
+      "zipCode": "631256",
+      "address": "no:30,kovil street"
+    },
+    {
+      "id": 4,
+      "pharmacyName": "Shiva",
+      "mobileNo": "7456982130",
+      "email": "shiva@gmail.com",
+      "city": "cudaloore",
+      "zipCode": "636105",
+      "address": "no:30,road street"
+    },
+    {
+      "id": 5,
+      "pharmacyName": "Jeniffer",
+      "mobileNo": "9985304200",
+      "email": "jniffer@gmail.com",
+      "city": "Chennai",
+      "zipCode": "631205",
+      "address": "no:207,vinayaga street"
+    },
+    {
+      "id": 6,
+      "pharmacyName": "Nikitha",
+      "mobileNo": "7399904200",
+      "email": "nikitha@gmail.com",
+      "city": "Pondy",
+      "zipCode": "685205",
+      "address": "no:201,mettu street"
+    },
+    {
+      "id": 7,
+      "pharmacyName": "Nishanthi",
+      "mobileNo": "8499904200",
+      "email": "nishanthi@gmail.com",
+      "city": "Chennai",
+      "zipCode": "635685",
+      "address": "no:200,murugan street"
+    },
+    {
+      "id": 8,
+      "pharmacyName": "Sudhan",
+      "mobileNo": "9495555320",
+      "email": "sudhan@gmail.com",
+      "city": "Chidhambaram",
+      "zipCode": "625805",
+      "address": "no:23,library street"
+    },
+    {
+      "id": 9,
+      "pharmacyName": "Meera",
+      "mobileNo": "9499905550",
+      "email": "meera123@gmail.com",
+      "city": "Ambatture",
+      "zipCode": "637805",
+      "address": "no:220/1,temple street"
+    },
+    {
+      "id": 10,
+      "pharmacyName": "Mullai",
+      "mobileNo": "9499904201",
+      "email": "malathiari@gmail.com",
+      "city": "Thiruttani",
+      "zipCode": "631285",
+      "address": "no:22,big street"
+    }
   ]
-  
 }

@@ -9,20 +9,28 @@ import { GetDoctorDetailsService } from "src/app/get-doctor-details.service";
   styleUrls: ["./details_Table.component.css"]
 })
 export class Details_TableComponent implements OnInit {
+
   searchText: string;
   doctorTable = false;
   pharmacyTable = true;
-  doctorDetails: object;
+  doctorDetails:any[];
+  totalRecords:number;
+  page:Number=1
+  data:Array<any>
   constructor(
     private getDoctorDetailsService: GetDoctorDetailsService,
     private modalService: NgbModal,
     private router: Router,
-  ) {}
+  ) {
+        this.data=new Array<any>()
+  }
 
   ngOnInit() {
     this.getDoctorDetailsService.getDoctorDetails().subscribe(data => {
       this.doctorDetails = data;
       console.log(this.doctorDetails);
+      this.totalRecords=this.doctorDetails.length;
+      
     });
   }
 

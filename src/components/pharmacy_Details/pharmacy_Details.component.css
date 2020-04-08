@@ -1,0 +1,44 @@
+.pharmacyTable {
+    font-family: "Trebuchet MS", Cambria, Cochin, Georgia, Times, "Times New Roman", serif, Helvetica, sans-serif;
+      border-collapse: collapse;
+      height: 100%;
+      margin-top: 15px;
+      margin-left: 13px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      width: 98%;
+  }
+  
+  .pharmacyTable td,
+  .pharmacyTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .pharmacyTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .pharmacyTable tr:hover {
+    background-color: #ddd;
+  }
+  
+  .pharmacyTable th {
+    padding-top: 9px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: white;
+    color: rgb(90, 79, 79);
+  }
+  .tableDiv {
+    border: ridge rgb(171, 233, 248);
+    width: 98%;
+    height: 100%;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 20px;
+  }
+  .pagination
+{
+  float:right ;
+}

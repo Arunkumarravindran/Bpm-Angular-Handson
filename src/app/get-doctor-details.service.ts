@@ -11,10 +11,15 @@ export class GetDoctorDetailsService {
 private_url:string="http://localhost:3000/doctorList";
   saveDoctorUrl: string = "http://localhost:3000/doctorList";
   updateId : Number;
+  private_url1:string="http://localhost:3000/pharmacyList";
 
   constructor(private http: HttpClient) {}
-  getDoctorDetails() {
-    return this.http.get(this.private_url);
+  getDoctorDetails():Observable<any[]> {
+    return this.http.get<any[]>(this.private_url);
+  }
+    getPharmacyDetails():Observable<any[]>{
+      return this.http.get<any[]>(this.private_url1)
+
   }
   saveDoctor(data) {
     return this.http.post(this.saveDoctorUrl, data).pipe(retry(2),

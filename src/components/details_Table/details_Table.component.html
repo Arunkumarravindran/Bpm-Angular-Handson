@@ -36,7 +36,10 @@
       <th>City</th>
       <th>Edit</th>
     </tr>
-    <tr *ngFor="let doctor of doctorDetails | table_details_search: searchText">
+    <tr *ngFor="let doctor of doctorDetails | table_details_search: searchText|paginate:{id:'listing_pagination',
+    itemsPerPage:5,
+    currentPage:page,
+    totalItems:totalRecords}">
       <td>{{ doctor.firstName + " " + doctor.lastName }}</td>
       <td>{{ doctor.mobileNo }}</td>
       <td>{{ doctor.email }}</td>
@@ -47,10 +50,14 @@
       <td><a (click)="openUpdate(updateForm, doctor.id)"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
     </tr>
   </table>
+  <div class="pagination">
+    <pagination-controls id="listing_pagination" maxSize="5"  directionLinks="true" (pageChange)="page=$event"></pagination-controls>
+   </div>
+  </div>
   <div [hidden] = "pharmacyTable">
     <app-pharmacy_Details></app-pharmacy_Details>
   </div>
-</div>
+
 <ng-template #content let-modal>
   <app-doctor-details-form></app-doctor-details-form>
 </ng-template>

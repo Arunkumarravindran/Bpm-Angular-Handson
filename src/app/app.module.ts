@@ -13,6 +13,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { DoctorDetailsFormComponent } from "../components/doctor-details-form/doctor-details-form.component";
 import{Update_doctorDetailsComponent} from '../components/update_doctorDetails/update_doctorDetails.component'
 import {Pharmacy_DetailsComponent} from '../components/pharmacy_Details/pharmacy_Details.component'
+import {NgxPaginationModule} from 'ngx-pagination';
+  
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import {Pharmacy_DetailsComponent} from '../components/pharmacy_Details/pharmacy
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

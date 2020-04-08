@@ -94,3 +94,7 @@ background-color: transparent;
 .pharmacyButn:hover {
   background-color:rgb(206, 238, 247);
 }
+.pagination
+{
+  float:right ;
+}
