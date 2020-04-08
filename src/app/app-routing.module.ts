@@ -6,6 +6,7 @@ import { PopUp_DialogComponent } from "../components/popUp_Dialog/popUp_Dialog.c
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import {Pharmacy_DetailsComponent} from '../components/pharmacy_Details/pharmacy_Details.component'
+import {MakePaymentComponent} from '../components/make-payment/make-payment.component'
 
 
 const routes: Routes = [
@@ -22,8 +23,8 @@ const routes: Routes = [
     component: Details_TableComponent
   },
   {
-    path: "addDetails",
-    component: PopUp_DialogComponent
+    path: "makePayment",
+    component: MakePaymentComponent
   },
   {
     path: "app",

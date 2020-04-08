@@ -13,7 +13,16 @@ import { HttpClientModule } from "@angular/common/http";
 import { DoctorDetailsFormComponent } from "../components/doctor-details-form/doctor-details-form.component";
 import{Update_doctorDetailsComponent} from '../components/update_doctorDetails/update_doctorDetails.component'
 import {Pharmacy_DetailsComponent} from '../components/pharmacy_Details/pharmacy_Details.component'
-
+import {PharmacyDetailsFormComponent} from '../components/pharmacy-details-form/pharmacy-details-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {MakePaymentComponent} from '../components/make-payment/make-payment.component'
+import {LinkInsuranceComponent} from '../components/link-insurance/link-insurance.component'
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,18 +32,28 @@ import {Pharmacy_DetailsComponent} from '../components/pharmacy_Details/pharmacy
     Table_details_searchPipe,
     DoctorDetailsFormComponent,
     Update_doctorDetailsComponent,
-    Pharmacy_DetailsComponent
+    Pharmacy_DetailsComponent,
+    PharmacyDetailsFormComponent,
+    MakePaymentComponent,
+    LinkInsuranceComponent
   ],
   entryComponents: [
-    PopUp_DialogComponent
+    PopUp_DialogComponent,
+    LinkInsuranceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    MatCardModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    MatInputModule,MatSelectModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

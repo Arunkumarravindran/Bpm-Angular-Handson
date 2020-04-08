@@ -1,0 +1,108 @@
+
+<form autocomplete="on" [formGroup]="linkInsuranceForm" (ngSubmit)="onSubmit()" [hidden] = "linkForm">
+  <mat-toolbar class="toolbr">
+    <mat-toolbar-row>
+     
+                 <i class="fa fa-arrow-left" (click) = "close()" aria-hidden="true"></i>
+      <span class = "toltxt">Link Insurance</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <p style="font-size: 14px;">Select Member</p>
+  <mat-form-field>
+    <mat-label>Select Member</mat-label>
+    <mat-select formControlName="member" [(ngModel)]="memberValue">
+      <mat-option  *ngFor="let member of members" [value]="member.value"  >
+        {{member.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <span></span>
+  <br>
+  <p style="font-size: 14px;">Select Insurer</p>
+  <mat-form-field>
+    <mat-label>Select Insurer</mat-label>
+    <mat-select formControlName="insurer" [(ngModel)]="insurerValue">
+      <mat-option  *ngFor="let insurer of insurers" [value]="insurer.value"  >
+        {{insurer.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <span></span>
+  <br>
+  <mat-form-field>
+    <mat-label>Select Plan</mat-label>
+    <mat-select formControlName="plan" [(ngModel)]="planValue">
+      <mat-option  *ngFor="let plan of plans" [value]="plan.value"  >
+        {{plan.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <span></span>
+  <br>
+  <mat-form-field >
+    <mat-label>Enter Card Details</mat-label>
+    <input matInput placeholder="Ex. salary credited..." formControlName="cardDetails" [(ngModel)]="cardValue">
+  </mat-form-field>
+<br>
+  <mat-form-field >
+    <mat-label>Amount</mat-label>
+    <input matInput  type = "number" placeholder="Rs:0000" formControlName="amount"[(ngModel)]="amountValue">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field >
+   
+    <input matInput  type = "number" placeholder="zipcode" formControlName="zipcode" [(ngModel)]="zipCodeValue">
+  </mat-form-field>
+  <br>
+ 
+
+  <button class = "linkbtn" mat-stroked-button type="submit" >Link</button>
+  
+</form>
+
+<form [hidden] = "success">
+  <mat-toolbar class="toolbr">
+    <mat-toolbar-row>
+      <span class = "toltxt">Sucess</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-card class = "successCard">
+Linked SucessFully!!!
+  </mat-card>
+
+  <br>
+  <table>
+    <tr>
+        <th>Relation</th>
+        <td>
+          {{memberValue}}
+        </td>
+      </tr>
+      <tr>
+        <th>Insurer Name</th>
+        <td>
+          {{insurerValue}}
+        </td>
+      </tr>
+      <tr>
+        <th>Plan</th>
+        <td>
+          {{planValue}}
+        </td>
+      </tr>
+      <tr>
+        <th>Insurance Card No.</th>
+        <td>
+          {{cardValue}}
+        </td>
+      </tr>
+    <tr>
+        <th>co-pay</th>
+        <td>
+          {{amountValue}}
+        </td>
+    </tr>
+</table>
+  
+</form>
