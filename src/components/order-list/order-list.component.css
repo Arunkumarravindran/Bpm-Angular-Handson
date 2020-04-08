@@ -1,0 +1,29 @@
+.tableDiv {
+  padding-top: 50px;
+}
+.differentTable,
+.differentTable td,
+table,
+tr,
+thead,
+table,
+tbody,
+th {
+  border-color: black;
+}
+.boundaryTable {
+  padding: 10px;
+  border: 1px solid rgb(104, 204, 211);
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.addressCss {
+  margin-top: 20px;
+  background-color: rgb(104, 204, 211);
+  margin-left: 15px;
+  margin-right: 15px;
+  color: white;
+  padding: 7px;
+  font-weight: 500;
+  font-size: 1em;
+}

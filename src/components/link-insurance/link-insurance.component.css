@@ -1,0 +1,29 @@
+.toolbr{
+    background-color: aqua;
+    margin-bottom: 10px;
+    margin-top: -24px;
+    width: 121%;
+    margin-left: -23px;
+   
+}
+
+.toltxt{
+    text-align: center;
+    margin-left: 40px;
+
+}
+
+.linkbtn{
+    background-color: aqua;
+    width: 165px;
+    margin-left: 30px;
+}
+
+.successCard{
+    background-color: cadetblue;
+    background-color: cadetblue;
+    width: 122%;
+    margin-left: -26px;
+    margin-top: -10px;
+    height: 155px;
+}

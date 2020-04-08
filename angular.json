@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -89,6 +90,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -122,8 +124,5 @@
       }
     }
   },
-  "defaultProject": "Bpm-Angular-Handson",
-  "cli": {
-    "analytics": "c51caa4d-c1dd-4386-8e50-ff0c3d7a43e5"
-  }
+  "defaultProject": "Bpm-Angular-Handson"
 }
