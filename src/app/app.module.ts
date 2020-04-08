@@ -11,19 +11,19 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { Table_details_searchPipe } from "../table_details_search.pipe";
 import { HttpClientModule } from "@angular/common/http";
 import { DoctorDetailsFormComponent } from "../components/doctor-details-form/doctor-details-form.component";
-import{Update_doctorDetailsComponent} from '../components/update_doctorDetails/update_doctorDetails.component'
-import {Pharmacy_DetailsComponent} from '../components/pharmacy_Details/pharmacy_Details.component'
-import {NgxPaginationModule} from 'ngx-pagination';
-import {PharmacyDetailsFormComponent} from '../components/pharmacy-details-form/pharmacy-details-form.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import {MakePaymentComponent} from '../components/make-payment/make-payment.component'
-import {LinkInsuranceComponent} from '../components/link-insurance/link-insurance.component'
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCardModule} from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { Update_doctorDetailsComponent } from "../components/update_doctorDetails/update_doctorDetails.component";
+import { Pharmacy_DetailsComponent } from "../components/pharmacy_Details/pharmacy_Details.component";
+import { NgxPaginationModule } from "ngx-pagination";
+import { PharmacyDetailsFormComponent } from "../components/pharmacy-details-form/pharmacy-details-form.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MakePaymentComponent } from "../components/make-payment/make-payment.component";
+import { LinkInsuranceComponent } from "../components/link-insurance/link-insurance.component";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
+import { MatCardModule } from "@angular/material/card";
+import { MatToolbarModule } from "@angular/material/toolbar";
 import { OrderListComponent } from "../components/order-list/order-list.component";
 @NgModule({
   declarations: [
@@ -40,10 +40,7 @@ import { OrderListComponent } from "../components/order-list/order-list.componen
     LinkInsuranceComponent,
     OrderListComponent
   ],
-  entryComponents: [
-    PopUp_DialogComponent,
-    LinkInsuranceComponent
-  ],
+  entryComponents: [PopUp_DialogComponent, LinkInsuranceComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -56,7 +53,8 @@ import { OrderListComponent } from "../components/order-list/order-list.componen
     MatCardModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    MatInputModule,MatSelectModule,
+    MatInputModule,
+    MatSelectModule,
     MatToolbarModule
   ],
   providers: [],

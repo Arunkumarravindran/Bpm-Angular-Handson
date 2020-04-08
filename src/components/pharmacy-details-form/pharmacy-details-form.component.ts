@@ -1,20 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { GetDoctorDetailsService } from "src/app/get-doctor-details.service";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
+import { GetPharmacyDetailsService } from "src/getPharmacyDetails.service";
 
 @Component({
-  selector: 'app-pharmacy-details-form',
-  templateUrl: './pharmacy-details-form.component.html',
-  styleUrls: ['./pharmacy-details-form.component.css']
+  selector: "app-pharmacy-details-form",
+  templateUrl: "./pharmacy-details-form.component.html",
+  styleUrls: ["./pharmacy-details-form.component.css"]
 })
 export class PharmacyDetailsFormComponent implements OnInit {
-
   registerForm: FormGroup;
   submitted = false;
   error: string;
-
-  constructor( private getDoctorDetailsService: GetDoctorDetailsService,
+  genders$ = [{ name: "Male" }, { name: "Female" }, { name: "Others" }];
+  specialities$ = [
+    { name: "Cardiologist" },
+    { name: "Gynecology" },
+    { name: "Children health" },
+    { name: "Diabetologist" },
+    { name: "Dietician" },
+    { name: "Female" },
+    { name: "Neurology" },
+    { name: "Nephrology" },
+    { name: "Psychiatry" },
+    { name: "Vascular Surgery" }
+  ];
+  constructor(
+    private getPharmacyDetailsService: GetDoctorDetailsService,
     private modalService: NgbModal,
     private formBuilder: FormBuilder
   ) {}
@@ -24,9 +37,9 @@ export class PharmacyDetailsFormComponent implements OnInit {
       pharmacyName: ["", Validators.required],
       email: ["", [Validators.required, Validators.email]],
       mobileNo: ["", [Validators.required, Validators.minLength(10)]],
-      dateOfBirth: ["", [Validators.required]],
-      practiceSince: ["", [Validators.required]],
-      city: ["", [Validators.required]]
+      city: ["", [Validators.required]],
+      zipCode: ["", [Validators.required, Validators.minLength(6)]],
+      address: ["", [Validators.required]]
     });
   }
   get forms() {
@@ -36,7 +49,7 @@ export class PharmacyDetailsFormComponent implements OnInit {
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
   save(formValues) {
-    // console.log("Details table :", formValues);
+    console.log("Pharmachy details form :", formValues);
     this.submitted = true;
     //validation check
     if (this.registerForm.invalid) {
@@ -44,7 +57,7 @@ export class PharmacyDetailsFormComponent implements OnInit {
       return;
     }
     //any post call link..
-    this.getDoctorDetailsService.saveDoctor(formValues).subscribe(
+    this.getPharmacyDetailsService.savePharmachy(formValues).subscribe(
       data => {
         if (data == "success") {
           console.log("router works");

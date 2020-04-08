@@ -113,13 +113,11 @@
       "mobileNumber": "0174123685",
       "emailId": "mathue@gmail.com",
       "gender": "M",
-
       "appointmentDate": 1588636800000,
       "refill": "Y",
       "orderStatus": null,
       "statusName": null
     },
-
     {
       "patientOrderKeyNb": 999,
       "patientKeyNb": 5,
@@ -253,6 +251,24 @@
       "city": "Thiruttani",
       "zipCode": "631285",
       "address": "no:22,big street"
+    },
+    {
+      "pharmacyName": "Appollo -Velachery",
+      "email": "appollovelachery@appollo.com",
+      "mobileNo": "87654345678",
+      "city": "Chennai",
+      "zipCode": "456789",
+      "address": "Opposite to Bus Stand",
+      "id": 11
+    },
+    {
+      "pharmacyName": "Vasan Eye Care - Tambaram",
+      "email": "tambaram@vasaneyecare.com",
+      "mobileNo": "7656765485",
+      "city": "Chenai",
+      "zipCode": "674865",
+      "address": "Beside State Bank Of India - Tambaram",
+      "id": 12
     }
   ]
 }

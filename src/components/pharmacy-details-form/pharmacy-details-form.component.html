@@ -1,3 +1,173 @@
-<p>
-  pharmacy-details-form works!
-</p>
+<div>
+  <div class="modal-header">
+    <div class="panel-heading">
+      <h4 class="modal-title" id="modal-basic-title">Pharmachy Details</h4>
+    </div>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-12">
+      <!-- #formValues="ngForm" -->
+      <form [formGroup]="registerForm" (ngSubmit)="save(registerForm.value)">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-12">
+              <label for="pharmacyName">Pharmachy Name</label>
+              <input
+                type="text"
+                formControlName="pharmacyName"
+                id="pharmacyName"
+                class="form-control"
+                placeholder="Pharmachy Name"
+                [ngClass]="{
+                  'is-invalid': submitted && forms.pharmacyName.errors
+                }"
+              />
+              <div
+                *ngIf="submitted && forms.pharmacyName.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="forms.pharmacyName.errors.required">
+                  Pharmachy Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label for="email">Email</label>
+              <input
+                formControlName="email"
+                id="email"
+                type="text"
+                class="form-control"
+                placeholder="Email"
+                [ngClass]="{ 'is-invalid': submitted && forms.email.errors }"
+              />
+              <div
+                *ngIf="submitted && forms.email.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="forms.email.errors.required">Email is required</div>
+                <div *ngIf="forms.email.errors.email">
+                  Email must be a valid email city
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="mobileNo">Mobile Number</label>
+              <input
+                formControlName="mobileNo"
+                id="mobileNo"
+                type="text"
+                class="form-control"
+                placeholder="Mobile Number"
+                [ngClass]="{
+                  'is-invalid': submitted && forms.mobileNo.errors
+                }"
+              />
+              <div
+                *ngIf="submitted && forms.mobileNo.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="forms.mobileNo.errors.required">
+                  Mobile Number is required
+                </div>
+                <div *ngIf="forms.mobileNo.errors.minlength">
+                  Mobile Number must have 10 digits
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <label for="city">City</label>
+              <input
+                formControlName="city"
+                id="city"
+                type="text"
+                class="form-control"
+                placeholder="City"
+                [ngClass]="{ 'is-invalid': submitted && forms.city.errors }"
+              />
+              <div
+                *ngIf="submitted && forms.city.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="forms.city.errors.required">City is required</div>
+                <div *ngIf="forms.city.errors.city">
+                  City must be a valid city
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="zipCode">Zipcode</label>
+              <input
+                formControlName="zipCode"
+                id="zipCode"
+                type="text"
+                class="form-control"
+                placeholder="Zipcode"
+                [ngClass]="{
+                  'is-invalid': submitted && forms.zipCode.errors
+                }"
+              />
+              <div
+                *ngIf="submitted && forms.zipCode.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="forms.zipCode.errors.required">
+                  Zipcode is required
+                </div>
+                <div *ngIf="forms.zipCode.errors.minlength">
+                  Zipcode must have 6 digits
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label for="address">Address</label>
+              <textarea
+                formControlName="address"
+                id="address"
+                type="text"
+                class="form-control"
+                placeholder="Address"
+                [ngClass]="{ 'is-invalid': submitted && forms.address.errors }"
+              ></textarea>
+              <div
+                *ngIf="submitted && forms.address.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="forms.address.errors.required">
+                  Address is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group mr-auto">
+            <button type="button" class="btn btn-sm btn-light panel-heading">
+              Add Multiple
+            </button>
+            <button type="button" class="btn btn-sm btn-success">
+              <i class="fa fa-upload" aria-hidden="true"></i>Upload Excel
+            </button>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-sm btn-primary">
+              <!-- ng-click="save(formValues)" -->
+              <!-- (click)="modal.close('Save click')" -->
+              <i class="fa fa-stethoscope" aria-hidden="true"></i>Add Pharmachy
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
