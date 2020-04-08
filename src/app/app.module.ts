@@ -23,6 +23,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { OrderListComponent } from "../components/order-list/order-list.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     Pharmacy_DetailsComponent,
     PharmacyDetailsFormComponent,
     MakePaymentComponent,
-    LinkInsuranceComponent
+    LinkInsuranceComponent,
+    OrderListComponent
   ],
   entryComponents: [
     PopUp_DialogComponent,

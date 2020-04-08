@@ -1,0 +1,56 @@
+<div class="tableDiv">
+  <div class="titlebar  row addressCss">
+    Order List
+  </div>
+  <!-- <br /> -->
+  <div class="boundaryTable">
+    <table class="table table-hover table-bordered differentTable">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Mobile Number</th>
+          <th scope="col">Email</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Date</th>
+          <th scope="col">Call</th>
+          <th scope="col">Refil</th>
+          <th scope="col">Status</th>
+          <th scope="col">Order</th>
+          <th scope="col">Prescription</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of patients">
+          <th scope="row">{{ patient.id }}</th>
+          <td>{{ patient.firstName + " " + patient.lastName }}</td>
+          <td>{{ patient.mobileNumber }}</td>
+          <td>{{ patient.emailId }}</td>
+          <td>{{ patient.gender }}</td>
+          <td>{{ patient.appointmentDate }}</td>
+          <td><i class="fa fa-phone" aria-hidden="true"></i></td>
+          <td>{{ patient.refill }}</td>
+          <td>{{ patient.statusName }}</td>
+          <td>{{ patient.orderStatus }}</td>
+          <td><a href="" role="button">view</a></td>
+          <!-- <td>{{ patient.prescription }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination
+      [collectionSize]="collectionSize"
+      [(page)]="page"
+      [pageSize]="pageSize"
+    >
+    </ngb-pagination>
+
+    <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+      <option [ngValue]="2">2 items per page</option>
+      <option [ngValue]="3">3 items per page</option>
+      <option [ngValue]="5">5 items per page</option>
+      <option [ngValue]="7">7 items per page</option>
+    </select>
+  </div>
+</div>
