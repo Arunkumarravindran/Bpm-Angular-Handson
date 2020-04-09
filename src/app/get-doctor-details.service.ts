@@ -56,6 +56,19 @@ export class GetDoctorDetailsService {
     );
   }
 
+  updatePharmachy(data) {
+    console.log("show update id", this.updateId);
+    return this.http
+      .patch(this.savePharmacyUrl + "/" + this.updateId, data)
+      .pipe(
+        retry(2),
+        catchError(this.handleError),
+        map(responseBody => {
+          return "success";
+        })
+      );
+  }
+
   handleError(error: HttpErrorResponse) {
     console.log("Error Handling Works");
     return throwError(error);

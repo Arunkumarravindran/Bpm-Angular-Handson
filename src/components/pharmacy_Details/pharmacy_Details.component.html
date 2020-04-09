@@ -1,30 +1,52 @@
 <div class="tableDiv">
   <table class="pharmacyTable">
-  <tr>
-    <th>PharmacyName</th>
-    <th>MobileNo</th>
-    <th>Email</th>
-    <th>City</th>
-    <th>Zipcode</th>
-    <th>Address</th>
-    <th>Delete</th>
-    <th>Edit</th>
-  </tr>
-  <tr *ngFor="let pharmacy of pharmacyDetails | paginate:{id:'listing_pagination',
-  itemsPerPage:5,
-  currentPage:page,
-  totalItems:totalRecords}">
-  <td>{{pharmacy.pharmacyName}}</td>
-  <td>{{pharmacy.mobileNo}}</td>
-  <td>{{pharmacy.email}}</td>
-  <td>{{pharmacy.city}}</td>
-  <td>{{pharmacy.zipCode}}</td>
-  <td>{{pharmacy.address}}</td>
-  <td><a i class="fa fa-trash-o" style="font-size:24px;color:red"></a></td>
-  <td><a i class="fa fa-edit"></a></td>
-</tr>
-</table>
-<div class="pagination">
-  <pagination-controls id="listing_pagination" maxSize="5"  directionLinks="true" (pageChange)="page=$event"></pagination-controls>
- </div>
- </div>
+    <tr>
+      <th>PharmacyName</th>
+      <th>MobileNo</th>
+      <th>Email</th>
+      <th>City</th>
+      <th>Zipcode</th>
+      <th>Address</th>
+      <th>Delete</th>
+      <th>Edit</th>
+    </tr>
+    <tr
+      *ngFor="
+        let pharmacy of pharmacyDetails
+          | paginate
+            : {
+                id: 'listing_pagination',
+                itemsPerPage: 5,
+                currentPage: page,
+                totalItems: totalRecords
+              }
+      "
+    >
+      <td>{{ pharmacy.pharmacyName }}</td>
+      <td>{{ pharmacy.mobileNo }}</td>
+      <td>{{ pharmacy.email }}</td>
+      <td>{{ pharmacy.city }}</td>
+      <td>{{ pharmacy.zipCode }}</td>
+      <td>{{ pharmacy.address }}</td>
+      <td><a i class="fa fa-trash-o" style="font-size:24px;color:red"></a></td>
+      <td>
+        <a (click)="openUpdate(updatePharmachy, pharmacy.id)"
+          ><i class="fa fa-edit" aria-hidden="true"></i
+        ></a>
+      </td>
+    </tr>
+  </table>
+
+  <div class="pagination">
+    <pagination-controls
+      id="listing_pagination"
+      maxSize="5"
+      directionLinks="true"
+      (pageChange)="page = $event"
+    ></pagination-controls>
+  </div>
+</div>
+
+<ng-template #updatePharmachy let-modal>
+  <app-update-pharmachy-details></app-update-pharmachy-details>
+</ng-template>

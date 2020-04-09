@@ -1,41 +1,43 @@
 import { Component, OnInit } from "@angular/core";
-import { GetDoctorDetailsService } from "src/app/get-doctor-details.service";
+import { GetDoctorDetailsService } from "./../../app/get-doctor-details.service";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { FormBuilder, Validators, FormGroup } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
+import { FormGroup } from "@angular/forms";
+
 @Component({
-  selector: "app-update_doctorDetails",
-  templateUrl: "./update_doctorDetails.component.html",
-  styleUrls: ["./update_doctorDetails.component.css"]
+  selector: "app-update-pharmachy-details",
+  templateUrl: "./update-pharmachy-details.component.html",
+  styleUrls: ["./update-pharmachy-details.component.css"]
 })
-export class Update_doctorDetailsComponent implements OnInit {
+export class UpdatePharmachyDetailsComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   error: string;
+
   constructor(
-    private getDoctorDetailsService: GetDoctorDetailsService,
+    private getPharmacyDetailsService: GetDoctorDetailsService,
     private modalService: NgbModal,
     private formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ["", Validators.required],
-      lastName: ["", Validators.required],
-      specialization: ["", Validators.required],
-      gender: ["", Validators.required],
+      pharmacyName: ["", Validators.required],
       email: ["", [Validators.required, Validators.email]],
       mobileNo: ["", [Validators.required, Validators.minLength(10)]],
-      dateOfBirth: ["", [Validators.required]],
-      practiceSince: ["", [Validators.required]],
-      city: ["", [Validators.required]]
+      city: ["", [Validators.required]],
+      zipCode: ["", [Validators.required, Validators.minLength(6)]],
+      address: ["", [Validators.required]]
     });
   }
   get forms() {
     return this.registerForm.controls;
   }
-  openUpdatemodal() {}
+  open(content) {
+    this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
+  }
   update(formValues) {
-    // console.log("Details table :", formValues);
+    console.log("Pharmachy details form :", formValues);
     this.submitted = true;
     //validation check
     if (this.registerForm.invalid) {
@@ -43,10 +45,10 @@ export class Update_doctorDetailsComponent implements OnInit {
       return;
     }
     //any post call link..
-    this.getDoctorDetailsService.updateDoctor(formValues).subscribe(
+    this.getPharmacyDetailsService.updatePharmachy(formValues).subscribe(
       data => {
         if (data == "success") {
-          console.log("update works");
+          console.log("router works");
           this.close(formValues);
         }
       },

@@ -25,6 +25,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatCardModule } from "@angular/material/card";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { OrderListComponent } from "../components/order-list/order-list.component";
+import { UpdatePharmachyDetailsComponent } from "src/components/update-pharmachy-details/update-pharmachy-details.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { OrderListComponent } from "../components/order-list/order-list.componen
     PharmacyDetailsFormComponent,
     MakePaymentComponent,
     LinkInsuranceComponent,
-    OrderListComponent
+    OrderListComponent,
+    UpdatePharmachyDetailsComponent
   ],
   entryComponents: [PopUp_DialogComponent, LinkInsuranceComponent],
   imports: [
