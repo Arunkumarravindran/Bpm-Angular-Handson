@@ -12,6 +12,7 @@ export class Pharmacy_DetailsComponent implements OnInit {
   totalRecords: number;
   page: Number = 1;
   data: Array<any>;
+  id:[];
   constructor(
     private getDoctorDetailsService: GetDoctorDetailsService,
     private modalService: NgbModal
@@ -32,4 +33,19 @@ export class Pharmacy_DetailsComponent implements OnInit {
       ariaLabelledBy: "modal-basic-title"
     });
   }
-}
+  deletePharmacyDetails(deleteForm,id)
+  {
+    this.getDoctorDetailsService.deletePharmacyDetails(id).subscribe(
+      ()=> console.log('pharmacy with id=${this.pharmacyDetails.id} deleted')
+  
+      );
+      this.modalService.open(deleteForm, { ariaLabelledBy: "modal-basic-title" });
+      
+    }
+    close(deleteForm) {
+      this.modalService.dismissAll(deleteForm);
+    }
+  }
+ 
+
+   

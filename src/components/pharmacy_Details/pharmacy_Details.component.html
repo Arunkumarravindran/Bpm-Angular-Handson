@@ -28,15 +28,20 @@
       <td>{{ pharmacy.city }}</td>
       <td>{{ pharmacy.zipCode }}</td>
       <td>{{ pharmacy.address }}</td>
-      <td><a i class="fa fa-trash-o" style="font-size:24px;color:red"></a></td>
+      <td>
+        <a (click)="deletePharmacyDetails(deleteForm,pharmacy.id)">
+          <i class="fa fa-trash-o"  aria-hidden="true" style="font-size:24px;color:red"></i></a>
+        </td>
       <td>
         <a (click)="openUpdate(updatePharmachy, pharmacy.id)"
-          ><i class="fa fa-edit" aria-hidden="true"></i
+        ><i class="fa fa-edit" aria-hidden="true"></i
         ></a>
       </td>
     </tr>
   </table>
-
+  </div>
+  
+<div>
   <div class="pagination">
     <pagination-controls
       id="listing_pagination"
@@ -45,8 +50,32 @@
       (pageChange)="page = $event"
     ></pagination-controls>
   </div>
-</div>
 
 <ng-template #updatePharmachy let-modal>
   <app-update-pharmachy-details></app-update-pharmachy-details>
+</ng-template>
+<ng-template #deleteForm let-modal>
+  <div>
+    <div class="modal-header">
+            <div class="panel-heading">
+              <h6 style="text-align: center;"  class="modal-title" id="modal-basic-title">Delete pharmacy Details</h6>
+            </div>
+            <button
+              type="button"
+              class="close"
+              aria-label="Close"
+              (click)="close()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+              <span style="text-align: center;"  > Are you sure want to delete?</span>
+              <span>
+                <div style="text-align: center;">
+            <button class="btn btn-danger" (click)="deletePharmacyDetails(pharmacy.id)">yes</button>
+            &nbsp;&nbsp;
+            <button class="btn-btn-primary" (click)="close()">No</button>
+                </div>
+          </span>
+        </div>
+        
 </ng-template>

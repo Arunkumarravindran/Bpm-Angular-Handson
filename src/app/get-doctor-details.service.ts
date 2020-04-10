@@ -6,22 +6,24 @@ import { map, catchError, retry } from "rxjs/operators";
   providedIn: "root"
 })
 export class GetDoctorDetailsService {
-  private_url: string = "http://localhost:3000/doctorList";
-  saveDoctorUrl: string = "http://localhost:3000/doctorList";
-  savePharmacyUrl: string = "http://localhost:3000/pharmacyList";
-
+  doctor_Url: string = "http://localhost:3000/doctorList";
+  pharmacy_Url: string = "http://localhost:3000/pharmacyList";
   updateId: Number;
-  private_url1: string = "http://localhost:3000/pharmacyList";
 
   constructor(private http: HttpClient) {}
   getDoctorDetails(): Observable<any[]> {
-    return this.http.get<any[]>(this.private_url);
+    return this.http.get<any[]>(this.doctor_Url);
   }
   getPharmacyDetails(): Observable<any[]> {
-    return this.http.get<any[]>(this.private_url1);
+    return this.http.get<any[]>(this.pharmacy_Url);
+  }
+  deletePharmacyDetails(deleteId:number):Observable<any[]>
+  {
+    console.log("inside delete service method", deleteId)
+    return this.http.delete<any>(this.pharmacy_Url+ "/" + deleteId);
   }
   saveDoctor(data) {
-    return this.http.post(this.saveDoctorUrl, data).pipe(
+    return this.http.post(this.doctor_Url, data).pipe(
       retry(2),
       catchError(this.handleError),
       map(responseBody => {
@@ -32,7 +34,7 @@ export class GetDoctorDetailsService {
 
   savePharmachy(data) {
     console.log("get doc serv : pharmachy", data);
-    return this.http.post(this.savePharmacyUrl, data).pipe(
+    return this.http.post(this.pharmacy_Url, data).pipe(
       retry(2),
       catchError(this.handleError),
       map(responseBody => {
@@ -44,10 +46,10 @@ export class GetDoctorDetailsService {
   setUpdateId(id) {
     this.updateId = id;
   }
-
+  
   updateDoctor(data) {
     console.log("show update id", this.updateId);
-    return this.http.patch(this.saveDoctorUrl + "/" + this.updateId, data).pipe(
+    return this.http.patch(this.doctor_Url + "/" + this.updateId, data).pipe(
       retry(2),
       catchError(this.handleError),
       map(responseBody => {
@@ -59,7 +61,7 @@ export class GetDoctorDetailsService {
   updatePharmachy(data) {
     console.log("show update id", this.updateId);
     return this.http
-      .patch(this.savePharmacyUrl + "/" + this.updateId, data)
+      .patch(this.pharmacy_Url + "/" + this.updateId, data)
       .pipe(
         retry(2),
         catchError(this.handleError),
